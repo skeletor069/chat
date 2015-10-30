@@ -5,26 +5,36 @@
 <head>
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 
-	<script src="https://www.parsecdn.com/js/parse-1.6.7.min.js"></script>
+	<script type="text/javascript" src="https://www.parsecdn.com/js/parse-1.6.7.min.js"></script>
 	<script type="text/javascript" src="js/jquery-2.1.4.min.js"></script>
 	<!-- Latest compiled and minified CSS -->
-	<link rel="stylesheet" href="css/bootstrap.min.css" integrity="sha512-dTfge/zgoMYpP7QbHy4gWMEGsbsdZeCXz7irItjcC3sPUFtf0kuFbDz/ixG7ArTxmDjLXDmezHubeNikyKGVyQ==" crossorigin="anonymous">
+	<link rel="stylesheet" href="css/bootstrap.min.css" type="text/css">
 
 	<!-- Optional theme -->
-	<link rel="stylesheet" href="css/bootstrap-theme.min.css" integrity="sha384-aUGj/X2zp5rLCbBxumKTCw2Z50WgIr1vs/PFN4praOTvYXWlVyh2UtNUU0KAUhAX" crossorigin="anonymous">
+	<link rel="stylesheet" href="css/bootstrap-theme.min.css" type="text/css">
 
 	<!-- Latest compiled and minified JavaScript -->
-	<script src="js/bootstrap.min.js" integrity="sha512-K1qjQ+NcF2TYO/eI3M6v8EiNYZfA95pQumfvcVrTHtwQVDG+aHRqLi/ETn2uB+1JqwYqVG3LIvdm9lj6imS/pQ==" crossorigin="anonymous"></script>
+	<script src="js/bootstrap.min.js" type="text/javascript"></script>
 
 	<script type="text/javascript">
 		Parse.initialize("Ph5Q7jwMTMQ7XqEvgmkAiLxPyJE0PRcuLTPCglQW", "gfT1OzQ3Az23WnIKxGJmlbbJd5BbclarW9mroiXP");
 	</script>
+	
+	<style>
+		.enabled{
+			display: block;
+		}
+		
+		.disabled{
+			display: none;
+		}
+	</style>
 </head>
 
 <body>
 <div class="container">
 
-	<div id="signIn">
+	<div id="signIn" class="enabled">
 		<h3>Login</h3>
 		<div class="row">
 			<div class="col-xs-12">
@@ -51,7 +61,7 @@
 		</div>
 	</div>
 
-	<div id="signUp">
+	<div id="signUp" class="disabled">
 		<h3>Sign Up</h3>
 		<div class="row">
 			<div class="col-xs-12">
@@ -86,13 +96,16 @@
 </body>
 <script type="text/javascript">
 	$(document).ready(function(){
+		alert("hi");
 		
 		$("#signInToggle").click(function () {
-		  	alert("sign in clicked");
+		  	$("#signUp").attr('class', 'disabled');
+		  	$("#signIn").attr('class', 'enabled');
 		});
 		
-		$("#signuUpToggle").click(function () {
-		  	alert("sign up clicked");
+		$("#signUpToggle").click(function () {
+		  	$("#signUp").attr('class', 'enabled');
+		  	$("#signIn").attr('class', 'disabled');
 		});
 		
 		$("#signInSubmit").click(function() {
